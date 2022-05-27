@@ -15,11 +15,16 @@ type MainWindow struct {
 	app fyne.App
 }
 
+type Layout interface {
+	GetContainer() *fyne.Container
+}
+
 func NewMainWindow(title string) *MainWindow {
 	gui := new(MainWindow)
 	gui.app = app.New()
 	gui.Window = *gui.NewWindow(title)
 	gui.window.SetMaster()
+	gui.window.Resize(fyne.NewSize(800, 600))
 	return gui
 }
 
@@ -40,4 +45,8 @@ func (g *Window) Show() {
 
 func (g *MainWindow) Run() {
 	g.app.Run()
+}
+
+func (g *Window) SetContent(ly Layout) {
+	g.window.SetContent(ly.GetContainer())
 }
