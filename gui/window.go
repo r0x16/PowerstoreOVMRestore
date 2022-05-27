@@ -32,6 +32,7 @@ func (g *MainWindow) NewWindow(title string) *Window {
 	w := new(Window)
 	w.Title = title
 	w.window = g.app.NewWindow(w.Title)
+	w.window.CenterOnScreen()
 	return w
 }
 
