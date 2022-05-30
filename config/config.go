@@ -12,6 +12,7 @@ import (
 )
 
 type Configuration struct {
+	DB string
 }
 
 var Global Configuration = Configuration{}
