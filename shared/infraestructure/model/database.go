@@ -1,7 +1,7 @@
 package model
 
 import (
-	"github.com/r0x16/PowerstoreOVMRestore/config"
+	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/config"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )

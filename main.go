@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/r0x16/PowerstoreOVMRestore/config"
-	"github.com/r0x16/PowerstoreOVMRestore/gui"
-	"github.com/r0x16/PowerstoreOVMRestore/model"
+	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/config"
+	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/gui"
+	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/model"
 )
 
 var MainWindow *gui.MainWindow
