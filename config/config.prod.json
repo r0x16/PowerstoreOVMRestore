@@ -1,4 +1,5 @@
 {
+    "APP_NAME": "PowerStore OVM Restore",
     "DB": "PowerstoreOVMRestore.db",
     "WINDOW_WIDTH": 800,
     "WINDOW_HEIGHT": 600

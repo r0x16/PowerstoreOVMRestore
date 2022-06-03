@@ -9,8 +9,10 @@ import (
 )
 
 type Configuration struct {
-	DB                          string
-	WINDOW_WIDTH, WINDOW_HEIGHT float32
+	APP_NAME string
+	DB       string
+	WINDOW_WIDTH,
+	WINDOW_HEIGHT float32
 }
 
 var Global Configuration = Configuration{}

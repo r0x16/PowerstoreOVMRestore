@@ -16,7 +16,7 @@ func NewMain() {
 	connectToDB()
 	defer closeDBConnection()
 
-	gui.NewMainWindow("PowerstoreOVMRestore")
+	gui.NewMainWindow(config.Global.APP_NAME)
 	gui.MainWindowContainer.SetMainContent()
 
 	sites.NewSitesModule()

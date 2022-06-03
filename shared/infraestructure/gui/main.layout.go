@@ -8,6 +8,7 @@ import (
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/layout"
 	"fyne.io/fyne/v2/widget"
+	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/config"
 )
 
 type MainLayout struct {
@@ -46,7 +47,7 @@ func (ly *MainLayout) createBoxLayout() *fyne.Container {
 
 func (ly *MainLayout) createHeader() *fyne.Container {
 
-	titleText := "PowerStore OVM Restore"
+	titleText := config.Global.APP_NAME
 	titleColor := color.NRGBA{R: 70, G: 70, B: 70, A: 255}
 	title := canvas.NewText(titleText, titleColor)
 	title.TextStyle = fyne.TextStyle{Bold: true}
