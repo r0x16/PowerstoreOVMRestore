@@ -10,18 +10,14 @@ import (
 	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/gui"
 )
 
-var MainWindow *gui.MainWindow
-var MainLayout *gui.MainLayout
-
 func NewMain() {
 	initConfiguration()
 	connectToDB()
 	defer closeDBConnection()
 
-	MainWindow = gui.NewMainWindow("PowerstoreOVMRestore")
-	MainLayout = gui.NewMainLayout()
-	MainWindow.SetContent(MainLayout)
-	MainWindow.Play()
+	gui.NewMainWindow("PowerstoreOVMRestore")
+	gui.MainWindowContainer.SetMainContent()
+	gui.MainWindowContainer.PlayMainApplication()
 }
 
 func initConfiguration() {

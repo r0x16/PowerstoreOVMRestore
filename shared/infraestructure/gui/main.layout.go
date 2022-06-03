@@ -17,11 +17,14 @@ type MainLayout struct {
 	Footer    *fyne.Container
 }
 
-func NewMainLayout() *MainLayout {
-	ly := new(MainLayout)
+var MainContainer *MainLayout
+
+func NewMainLayout() {
+	ly := &MainLayout{}
 	ly.boxLayout = ly.createBoxLayout()
 	ly.Header = ly.createHeader()
 	ly.Body = ly.createBody()
+	ly.Body.SetOffset(1.0)
 	ly.Footer = ly.createFooter()
 
 	ly.boxLayout.Add(ly.Header)
@@ -29,7 +32,8 @@ func NewMainLayout() *MainLayout {
 	ly.boxLayout.Add(ly.Body)
 	ly.boxLayout.Add(layout.NewSpacer())
 	ly.boxLayout.Add(ly.Footer)
-	return ly
+
+	MainContainer = ly
 }
 
 func (ly *MainLayout) GetContainer() *fyne.Container {
