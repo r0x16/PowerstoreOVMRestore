@@ -9,9 +9,5 @@ type SitesModule struct {
 
 func NewSitesModule() {
 	view.NewSitesLayout()
-	view.SitesContainer.NewSiteToolbarAction(newSiteAction)
-}
-
-func newSiteAction() {
-
+	view.SitesContainer.NewSiteToolbarAction(createSiteAction)
 }

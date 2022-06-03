@@ -36,3 +36,7 @@ func (g *MainWindow) Run() {
 func (g *Window) SetContent(ly Layout) {
 	g.window.SetContent(ly.GetContainer())
 }
+
+func (g *Window) SetSize(width, height float32) {
+	g.window.Resize(fyne.NewSize(width, height))
+}
