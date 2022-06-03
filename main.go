@@ -4,20 +4,21 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/r0x16/PowerstoreOVMRestore/main/infraestructure/view"
 	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/config"
-	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/gui"
-	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/model"
+	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/database"
+	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/window"
 )
 
-var MainWindow *gui.MainWindow
+var MainWindow *window.MainWindow
 
 func main() {
 	fmt.Println("START")
 	initConfiguration()
 	connectToDB()
 	defer closeDBConnection()
-	MainWindow = gui.NewMainWindow("PowerstoreOVMRestore")
-	MainLayout := gui.NewMainLayout()
+	MainWindow = window.NewMainWindow("PowerstoreOVMRestore")
+	MainLayout := view.NewMainLayout()
 	MainWindow.SetContent(MainLayout)
 	MainWindow.Play()
 }
@@ -31,7 +32,7 @@ func initConfiguration() {
 }
 
 func connectToDB() {
-	err := model.Connect()
+	err := database.Connect()
 	if err != nil {
 		fmt.Println("Error connecting to database")
 		os.Exit(1)
@@ -39,7 +40,7 @@ func connectToDB() {
 }
 
 func closeDBConnection() {
-	err := model.Close()
+	err := database.Close()
 	if err != nil {
 		fmt.Println("Error trying to disconnect to database")
 		os.Exit(1)

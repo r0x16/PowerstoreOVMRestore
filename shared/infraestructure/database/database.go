@@ -1,4 +1,4 @@
-package model
+package database
 
 import (
 	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/config"
@@ -6,11 +6,11 @@ import (
 	"gorm.io/gorm"
 )
 
-var db *gorm.DB
+var Connection *gorm.DB
 
 func Connect() error {
 	var err error
-	db, err = gorm.Open(sqlite.Open(config.Global.DB), &gorm.Config{})
+	Connection, err = gorm.Open(sqlite.Open(config.Global.DB), &gorm.Config{})
 	if err != nil {
 		return err
 	}
@@ -18,7 +18,7 @@ func Connect() error {
 }
 
 func Close() error {
-	conn, err := db.DB()
+	conn, err := Connection.DB()
 	if err != nil {
 		return err
 	}
