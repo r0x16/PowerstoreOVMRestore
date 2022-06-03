@@ -11,7 +11,20 @@ var mgui struct {
 }
 
 func createSiteAction() {
+
+	if isOpened() {
+		return
+	}
+
 	application.CreateSite()
 	mgui.wizard = *view.NewCreateSiteWizard()
 	mgui.wizard.Show()
+}
+
+// Verifies if a wizard create site is already opened
+func isOpened() bool {
+	if mgui.wizard != (gui.Window{}) {
+		return true
+	}
+	return false
 }
