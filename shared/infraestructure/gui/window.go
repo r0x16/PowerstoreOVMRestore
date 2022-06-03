@@ -3,6 +3,7 @@ package gui
 import (
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
+	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/config"
 )
 
 type Window struct {
@@ -24,7 +25,7 @@ func NewMainWindow(title string) *MainWindow {
 	gui.app = app.New()
 	gui.Window = *gui.NewWindow(title)
 	gui.window.SetMaster()
-	gui.window.Resize(fyne.NewSize(800, 600))
+	gui.window.Resize(fyne.NewSize(config.Global.WINDOW_WIDTH, config.Global.WINDOW_HEIGHT))
 	return gui
 }
 
