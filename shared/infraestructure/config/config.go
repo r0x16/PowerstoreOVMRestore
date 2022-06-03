@@ -13,6 +13,8 @@ type Configuration struct {
 	DB       string
 	WINDOW_WIDTH,
 	WINDOW_HEIGHT float32
+	WIZZARD_WIDTH,
+	WIZZARD_HEIGHT float32
 }
 
 var Global Configuration = Configuration{}
