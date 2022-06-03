@@ -8,6 +8,7 @@ import (
 	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/config"
 	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/database"
 	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/gui"
+	sites "github.com/r0x16/PowerstoreOVMRestore/sites/infraestructure"
 )
 
 func NewMain() {
@@ -17,6 +18,9 @@ func NewMain() {
 
 	gui.NewMainWindow("PowerstoreOVMRestore")
 	gui.MainWindowContainer.SetMainContent()
+
+	sites.NewSitesModule()
+
 	gui.MainWindowContainer.PlayMainApplication()
 }
 
