@@ -24,11 +24,16 @@ func NewMain() {
 	gui.MainWindowContainer.PlayMainApplication()
 }
 
+// Initialize Global configuration and i18n support
 func initConfiguration() {
-	err := config.Initialize()
-	if err != nil {
+	if err := config.Initialize(); err != nil {
 		log.Fatal("Error loading configuration file, application cannot start", err)
 	}
+
+	if err := config.InitializeLang(); err != nil {
+		log.Fatal("Error loading language configuration file, application cannot start", err)
+	}
+
 }
 
 func connectToDB() {
