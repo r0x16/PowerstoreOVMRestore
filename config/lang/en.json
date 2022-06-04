@@ -1,5 +1,10 @@
 {
     "Module": {
         "CreateSitesWizard": "New Site Wizard"
+    },
+    "Wizard": {
+        "backButton": "Back",
+        "nextButton": "next",
+        "finishButton": "Finish"
     }
 }

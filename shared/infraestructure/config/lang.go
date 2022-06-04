@@ -12,10 +12,17 @@ import (
 
 type LangConfiguration struct {
 	Module ModuleLang `json:"Module"`
+	Wizard WizardLang `json:"Wizard"`
 }
 
 type ModuleLang struct {
 	CreateSitesWizard string `json:"CreateSitesWizard"`
+}
+
+type WizardLang struct {
+	BackButton   string `json:"backButton"`
+	NextButton   string `json:"nextButton"`
+	FinishButton string `json:"finishButton"`
 }
 
 // ----------------
