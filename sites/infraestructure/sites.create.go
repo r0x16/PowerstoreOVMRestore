@@ -23,8 +23,5 @@ func createSiteAction() {
 
 // Verifies if a wizard create site is already opened
 func isOpened() bool {
-	if mgui.wizard != (gui.Window{}) {
-		return true
-	}
-	return false
+	return mgui.wizard != gui.Window{}
 }
