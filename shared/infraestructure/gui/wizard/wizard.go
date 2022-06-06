@@ -1,10 +1,7 @@
 package wizard
 
 import (
-	"image/color"
-
 	"fyne.io/fyne/v2"
-	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/layout"
 	"fyne.io/fyne/v2/widget"
@@ -20,7 +17,6 @@ type Wizard struct {
 	VBox       *fyne.Container
 	HBox       *fyne.Container
 	containers *WizardContainers
-	caption    *canvas.Text
 
 	// Step buttons
 	BackButton   *widget.Button
@@ -39,7 +35,6 @@ func NewWizard(config WizardConfig, steps []WizardStep) *Wizard {
 		config:      config,
 		Steps:       steps,
 		currentStep: 0,
-		caption:     canvas.NewText(steps[0].GetCaption(), color.Gray{}),
 	}
 	w.containers = w.buildContainers()
 	w.buildBorderLayout()

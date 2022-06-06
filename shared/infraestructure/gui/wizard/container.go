@@ -29,20 +29,27 @@ func (w *Wizard) buildContainers() *WizardContainers {
 
 }
 
-// Builds the header container, with tittle and caption
+// Builds the header container, with title and caption
 func (w *Wizard) buildTitleContainer() *fyne.Container {
 	title := canvas.NewText(w.config.GetTitle(), theme.ForegroundColor())
-	title.TextSize = 25
+	title.TextSize = 20
 	title.Alignment = fyne.TextAlignCenter
 
-	w.caption.TextSize = 10
-	w.caption.Alignment = fyne.TextAlignCenter
+	caption := canvas.NewText(w.Steps[w.currentStep].GetCaption(), theme.ForegroundColor())
+	caption.TextSize = 10
+	caption.Alignment = fyne.TextAlignCenter
 
 	return container.NewVBox(
 		title,
-		w.caption,
+		caption,
 		widget.NewSeparator(),
 	)
+}
+
+// Rebuilds the header container
+func (w *Wizard) rebuildTitleContainer() {
+	tc := w.buildTitleContainer()
+	w.VBox.Objects[0] = tc
 }
 
 // Builds steps lists for showing current task

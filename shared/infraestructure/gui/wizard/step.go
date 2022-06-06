@@ -21,9 +21,7 @@ func (w *Wizard) Back() {
 	}
 	w.Steps[w.currentStep].OnLeave()
 	w.currentStep--
-	w.refreshButtonStatus()
-	w.rebuildTaskContainer()
-	w.rebuildStepsContainer()
+	w.refreshContainers()
 }
 
 // This method controls the next button behaviour
@@ -37,9 +35,7 @@ func (w *Wizard) Next() {
 	}
 	w.Steps[w.currentStep].OnLeave()
 	w.currentStep++
-	w.refreshButtonStatus()
-	w.rebuildTaskContainer()
-	w.rebuildStepsContainer()
+	w.refreshContainers()
 }
 
 // This method controls the finish button behaviour
@@ -57,6 +53,14 @@ func (w *Wizard) Finish() {
 	w.CancelButton.SetText(config.Lang.Wizard.CloseButton)
 }
 
+// Refresh all the containers
+func (w *Wizard) refreshContainers() {
+	w.refreshButtonStatus()
+	w.rebuildTaskContainer()
+	w.rebuildStepsContainer()
+	w.rebuildTitleContainer()
+}
+
 // Refresh all steps buttons based on current step
 func (w *Wizard) refreshButtonStatus() {
 	w.refreshBackButton()
@@ -66,7 +70,7 @@ func (w *Wizard) refreshButtonStatus() {
 
 // Enable or Disable Back button based on current step
 func (w *Wizard) refreshBackButton() {
-	if w.currentStep <= 0 || w.currentStep >= len(w.Steps)-1 {
+	if w.currentStep <= 0 || w.currentStep > len(w.Steps)-1 {
 		w.BackButton.Disable()
 	} else {
 		w.BackButton.Enable()
