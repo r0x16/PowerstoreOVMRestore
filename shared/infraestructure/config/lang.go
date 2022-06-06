@@ -23,6 +23,8 @@ type WizardLang struct {
 	BackButton   string `json:"backButton"`
 	NextButton   string `json:"nextButton"`
 	FinishButton string `json:"finishButton"`
+	CancelButton string `json:"cancelButton"`
+	CloseButton  string `json:"closeButton"`
 }
 
 // ----------------

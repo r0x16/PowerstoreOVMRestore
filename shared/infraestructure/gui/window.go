@@ -40,3 +40,8 @@ func (g *Window) SetContent(ly Layout) {
 func (g *Window) SetSize(width, height float32) {
 	g.window.Resize(fyne.NewSize(width, height))
 }
+
+func (g *Window) Close() {
+	g.window.Close()
+	g.window = nil
+}

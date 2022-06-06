@@ -5,6 +5,8 @@
     "Wizard": {
         "backButton": "Back",
         "nextButton": "next",
-        "finishButton": "Finish"
+        "finishButton": "Finish",
+        "cancelButton": "Cancel",
+        "closeButton": "Close"
     }
 }

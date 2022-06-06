@@ -6,51 +6,62 @@ import (
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
+	"fyne.io/fyne/v2/layout"
 	"fyne.io/fyne/v2/widget"
 )
 
 // Represents a wizard pane content with logic to navigate between steps
 // with validation and completition logic
 type Wizard struct {
-	BorderLayout *fyne.Container
-	containers   *WizardContainers
-	currentStep  int
-	caption      *canvas.Text
+	// Configuration
+	config WizardConfig
+
+	// Container properties
+	VBox       *fyne.Container
+	HBox       *fyne.Container
+	containers *WizardContainers
+	caption    *canvas.Text
 
 	// Step buttons
 	BackButton   *widget.Button
 	NextButton   *widget.Button
 	FinishButton *widget.Button
+	CancelButton *widget.Button
 
-	Steps []WizardStep
-	Title string
+	// Phases properties
+	currentStep int
+	Steps       []WizardStep
 }
 
 // Instantiates a new wizard
-func NewWizard(title string, steps []WizardStep) *Wizard {
+func NewWizard(config WizardConfig, steps []WizardStep) *Wizard {
 	w := &Wizard{
-		Title:       title,
+		config:      config,
 		Steps:       steps,
 		currentStep: 0,
 		caption:     canvas.NewText(steps[0].GetCaption(), color.Gray{}),
 	}
 	w.containers = w.buildContainers()
-	w.BorderLayout = w.buildBorderLayout()
+	w.buildBorderLayout()
+	w.rebuildStepsContainer()
 	return w
 }
 
 // Build the main layout where all parts of wizard resides
-func (w *Wizard) buildBorderLayout() *fyne.Container {
-	return container.NewBorder(
+func (w *Wizard) buildBorderLayout() {
+	w.HBox = container.NewHBox(
+		w.containers.stepsButtonsContainer,
+		w.containers.taskContainer,
+	)
+	w.VBox = container.NewVBox(
 		w.containers.titleContainer,
-		w.containers.stepsButtonsCointainer,
-		w.containers.stepsContainer,
-		nil,
-		*w.containers.taskContainer,
+		w.HBox,
+		layout.NewSpacer(),
+		w.containers.stepsButtonsContainer,
 	)
 }
 
 // Implements gui.Layout, this makes possible to set the content on window
 func (w *Wizard) GetContainer() *fyne.Container {
-	return w.BorderLayout
+	return w.VBox
 }
