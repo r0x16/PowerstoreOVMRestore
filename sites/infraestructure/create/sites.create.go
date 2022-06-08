@@ -1,16 +1,16 @@
-package infraestructure
+package create
 
 import (
 	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/gui"
 	"github.com/r0x16/PowerstoreOVMRestore/sites/application"
-	"github.com/r0x16/PowerstoreOVMRestore/sites/infraestructure/view"
+	"github.com/r0x16/PowerstoreOVMRestore/sites/infraestructure/create/view"
 )
 
 var mgui struct {
 	wizard gui.Window
 }
 
-func createSiteAction() {
+func CreateSiteAction() {
 
 	if isOpened() {
 		return
