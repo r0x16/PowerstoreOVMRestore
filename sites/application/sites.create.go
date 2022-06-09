@@ -1,7 +1,10 @@
 package application
 
-import "log"
+import (
+	"github.com/r0x16/PowerstoreOVMRestore/sites/domain/model"
+)
 
-func CreateSite() {
-	log.Println("TODO: CreateSite")
+// Creates a new site model instance
+func CreateSite() *model.Site {
+	return &model.Site{}
 }
