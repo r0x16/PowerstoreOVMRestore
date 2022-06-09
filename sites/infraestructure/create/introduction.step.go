@@ -11,7 +11,7 @@ type IntroductionStep struct {
 	wizard.BaseWizardStep
 }
 
-// Creates and returns the instroduction step pane
+// Creates and returns the introduction step pane
 func NewIntroductionStep() *IntroductionStep {
 	step := &IntroductionStep{}
 	step.Content = view.NewIntroductionStepLayout()
