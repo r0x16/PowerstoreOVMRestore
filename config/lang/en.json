@@ -4,7 +4,11 @@
             "WizardTitle": "Site creation wizard",
             "IntroductionSectionTitle": "Introduction",
             "IntroductionTitle": "Welcome to the availability site creation wizard",
-            "IntroductionContent": "This Wizard will guide you through the creation of a new availability site\nClick next button to continue"
+            "IntroductionContent": "This Wizard will guide you through the creation of a new availability site\nClick next button to continue",
+            "NameSectionTitle": "Name",
+            "NameCaption": "Assign the name and description for the new availability site",
+            "NameInput": "Name",
+            "DescriptionInput": "Description"
         }
     },
     "Wizard": {

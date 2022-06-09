@@ -20,6 +20,10 @@ type CreateSitesWizardLang struct {
 	IntroductionSectionTitle string `json:"IntroductionSectionTitle"`
 	IntroductionTitle        string `json:"IntroductionTitle"`
 	IntroductionContent      string `json:"IntroductionContent"`
+	NameSectionTitle         string `json:"NameSectionTitle"`
+	NameCaption              string `json:"NameCaption"`
+	NameInput                string `json:"NameInput"`
+	DescriptionInput         string `json:"DescriptionInput"`
 }
 type ModuleLang struct {
 	CreateSitesWizard CreateSitesWizardLang `json:"CreateSitesWizard"`

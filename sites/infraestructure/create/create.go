@@ -37,6 +37,7 @@ func CreateSiteAction() {
 
 	createInstance.wizard = view.NewCreateSiteWizard(wc, []wizard.WizardStep{
 		NewIntroductionStep(),
+		NewNameStep(),
 	})
 	createInstance.wizard.SetOnClose(wc.OnClose)
 	createInstance.wizard.Show()
