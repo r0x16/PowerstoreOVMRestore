@@ -2,6 +2,12 @@ package wizard
 
 import "fyne.io/fyne/v2"
 
+// Wizard configuration parameters
+const (
+	ContentTitleTextSize = 14
+	ContentTextSize      = 11
+)
+
 type WizardConfig interface {
 	GetTitle() string
 	OnClose()
