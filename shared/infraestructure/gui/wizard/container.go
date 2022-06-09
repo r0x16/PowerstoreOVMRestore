@@ -85,7 +85,9 @@ func (w *Wizard) buildTaskContainer() *fyne.Container {
 // Rebuilds current task container, tipically when step changes
 func (w *Wizard) rebuildTaskContainer() {
 	w.containers.taskContainer = w.buildTaskContainer()
-	w.HBox.Objects[1] = w.containers.taskContainer
+	w.HBox.Objects[1] = container.NewPadded(
+		container.NewPadded(w.containers.taskContainer),
+	)
 }
 
 // Builds on finish wizard steps
