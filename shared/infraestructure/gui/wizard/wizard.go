@@ -44,7 +44,7 @@ func NewWizard(config WizardConfig, steps []WizardStep) *Wizard {
 
 // Build the main layout where all parts of wizard resides
 func (w *Wizard) buildBorderLayout() {
-	w.HBox = container.NewHBox(
+	w.HBox = container.New(layout.NewFormLayout(),
 		w.containers.stepsButtonsContainer,
 		w.containers.taskContainer,
 	)
