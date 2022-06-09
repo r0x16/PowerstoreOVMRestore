@@ -15,8 +15,14 @@ type LangConfiguration struct {
 	Wizard WizardLang `json:"Wizard"`
 }
 
+type CreateSitesWizardLang struct {
+	WizardTitle              string `json:"WizardTitle"`
+	IntroductionSectionTitle string `json:"IntroductionSectionTitle"`
+	IntroductionTitle        string `json:"IntroductionTitle"`
+	IntroductionContent      string `json:"IntroductionContent"`
+}
 type ModuleLang struct {
-	CreateSitesWizard string `json:"CreateSitesWizard"`
+	CreateSitesWizard CreateSitesWizardLang `json:"CreateSitesWizard"`
 }
 
 type WizardLang struct {

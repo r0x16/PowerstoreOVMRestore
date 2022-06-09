@@ -1,6 +1,11 @@
 {
     "Module": {
-        "CreateSitesWizard": "New Site Wizard"
+        "CreateSitesWizard": {
+            "WizardTitle": "Site creation wizard",
+            "IntroductionSectionTitle": "Introduction",
+            "IntroductionTitle": "Welcome to the availability site creation wizard",
+            "IntroductionContent": "This Wizard will guide you through the creation of a new availability site\nClick next button to continue"
+        }
     },
     "Wizard": {
         "backButton": "Back",
