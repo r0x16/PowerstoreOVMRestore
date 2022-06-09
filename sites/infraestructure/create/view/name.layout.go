@@ -13,14 +13,15 @@ import (
 
 // Creates the form layout requesting the NameStep Data
 func NewNameStepLayout() (*fyne.Container, *NameStepFormData) {
-	nameInput, nameLabel := getNameInput()
+	nameInput, nameLabel, nameErrorLabel := getNameInput()
 	descriptionInput, descriptionLabel := getDescriptionInput()
 	formData := &NameStepFormData{
 		name:        nameInput,
+		nameError:   nameErrorLabel,
 		description: descriptionInput,
 	}
 	return container.NewVBox(
-		nameLabel,
+		container.NewHBox(nameLabel, formData.nameError),
 		formData.name,
 		descriptionLabel,
 		formData.description,
@@ -30,6 +31,7 @@ func NewNameStepLayout() (*fyne.Container, *NameStepFormData) {
 // --- START FormData: This struct defines the data requested in the NameStep
 type NameStepFormData struct {
 	name        *widget.Entry
+	nameError   *canvas.Text
 	description *widget.Entry
 }
 
@@ -43,14 +45,29 @@ func (f *NameStepFormData) GetDescription() string {
 	return f.description.Text
 }
 
+// Set the error for the name input
+func (f *NameStepFormData) SetNameError(msg string) {
+	f.nameError.Text = msg
+	f.nameError.Refresh()
+}
+
+// Clear all error messages
+func (f *NameStepFormData) ClearErrors() {
+	f.nameError.Text = ""
+	f.nameError.Refresh()
+}
+
 // --- END FormData
 
 // Returns the name label and input
-func getNameInput() (*widget.Entry, *canvas.Text) {
+func getNameInput() (*widget.Entry, *canvas.Text, *canvas.Text) {
 	label := canvas.NewText(config.Lang.Module.CreateSitesWizard.NameInput, color.Black)
 	label.TextSize = wizard.ContentTextSize
 
-	return widget.NewEntry(), label
+	errorLabel := canvas.NewText("", color.RGBA{R: 255, A: 255})
+	errorLabel.TextSize = wizard.ContentTextSize
+
+	return widget.NewEntry(), label, errorLabel
 }
 
 // Returns the description label and input

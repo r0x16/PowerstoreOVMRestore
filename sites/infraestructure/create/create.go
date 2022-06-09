@@ -8,14 +8,14 @@ import (
 	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/gui"
 	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/gui/wizard"
 	"github.com/r0x16/PowerstoreOVMRestore/sites/application"
-	"github.com/r0x16/PowerstoreOVMRestore/sites/domain/model"
 	"github.com/r0x16/PowerstoreOVMRestore/sites/infraestructure/create/view"
+	"github.com/r0x16/PowerstoreOVMRestore/sites/infraestructure/repository"
 )
 
 // Defines all the items involved in a new site creation
 type createSiteInstance struct {
 	wizard *gui.Window
-	site   *model.Site
+	site   *application.SiteCreationData
 }
 
 // Stores all wizard status for this instance
@@ -29,8 +29,9 @@ func CreateSiteAction() {
 	}
 
 	createInstance = &createSiteInstance{}
-
-	createInstance.site = application.CreateSite()
+	createInstance.site = application.NewCreateSite(
+		repository.NewSiteRepository(),
+	)
 
 	wc := &wizardConfig{}
 	wc.Title = config.Lang.Module.CreateSitesWizard.WizardTitle

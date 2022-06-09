@@ -22,8 +22,8 @@ func NewSiteRepository() *SiteRepositoryGorm {
 }
 
 // getByName implements repository.SiteRepository
-func (s SiteRepositoryGorm) GetByName(name string) *model.Site {
+func (s SiteRepositoryGorm) GetByName(name string) (*model.Site, int64, error) {
 	site := model.Site{}
-	s.db.Where("name = ?", name).First(&site)
-	return &site
+	result := s.db.Where("name = ?", name).Limit(1).Find(&site)
+	return &site, result.RowsAffected, result.Error
 }

@@ -24,6 +24,11 @@ type CreateSitesWizardLang struct {
 	NameCaption              string `json:"NameCaption"`
 	NameInput                string `json:"NameInput"`
 	DescriptionInput         string `json:"DescriptionInput"`
+	Errors                   struct {
+		NameEmpty  string `json:"NameEmpty"`
+		NameFormat string `json:"NameFormat"`
+		NameExists string `json:"NameExists"`
+	} `json:"Errors"`
 }
 type ModuleLang struct {
 	CreateSitesWizard CreateSitesWizardLang `json:"CreateSitesWizard"`

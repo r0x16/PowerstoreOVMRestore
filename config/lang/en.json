@@ -8,7 +8,12 @@
             "NameSectionTitle": "Name",
             "NameCaption": "Assign the name and description for the new availability site",
             "NameInput": "Name",
-            "DescriptionInput": "Description"
+            "DescriptionInput": "Description",
+            "Errors": {
+                "NameEmpty": "Name field cannot be empty",
+                "NameFormat": "Name field must contain only letters",
+                "NameExists": "Site {name} already exists"
+            }
         }
     },
     "Wizard": {
