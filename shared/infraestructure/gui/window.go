@@ -45,3 +45,7 @@ func (g *Window) Close() {
 	g.window.Close()
 	g.window = nil
 }
+
+func (g *Window) SetOnClose(callback func()) {
+	g.window.SetCloseIntercept(callback)
+}
