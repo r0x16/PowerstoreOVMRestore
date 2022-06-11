@@ -21,6 +21,13 @@ func NewSiteRepository() *SiteRepositoryGorm {
 	return repo
 }
 
+// GetAll implements repository.SiteRepository
+func (s *SiteRepositoryGorm) GetAll() (*[]model.Site, int64, error) {
+	var sites *[]model.Site
+	result := s.db.Find(sites)
+	return sites, result.RowsAffected, result.Error
+}
+
 // getByName implements repository.SiteRepository
 func (s *SiteRepositoryGorm) GetByName(name string) (*model.Site, int64, error) {
 	site := model.Site{}
