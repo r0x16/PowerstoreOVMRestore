@@ -24,6 +24,8 @@ type CreateSitesWizardLang struct {
 	NameCaption              string `json:"NameCaption"`
 	NameInput                string `json:"NameInput"`
 	DescriptionInput         string `json:"DescriptionInput"`
+	SummarySectionTitle      string `json:"SummarySectionTitle"`
+	SummaryCaption           string `json:"SummaryCaption"`
 	Errors                   struct {
 		NameEmpty  string `json:"NameEmpty"`
 		NameFormat string `json:"NameFormat"`

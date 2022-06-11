@@ -9,6 +9,8 @@
             "NameCaption": "Assign the name and description for the new availability site",
             "NameInput": "Name",
             "DescriptionInput": "Description",
+            "SummarySectionTitle": "Summary",
+            "SummaryCaption": "Check the new site information before creation",
             "Errors": {
                 "NameEmpty": "Name field cannot be empty",
                 "NameFormat": "Name field must contain only letters",
