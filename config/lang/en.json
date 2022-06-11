@@ -11,10 +11,12 @@
             "DescriptionInput": "Description",
             "SummarySectionTitle": "Summary",
             "SummaryCaption": "Check the new site information before creation",
+            "OnFinishSuccess": "A new site was created successfully",
             "Errors": {
                 "NameEmpty": "Name field cannot be empty",
                 "NameFormat": "Name field must contain only letters",
-                "NameExists": "Site {name} already exists"
+                "NameExists": "Site {name} already exists",
+                "NameStoreError": "An error ocurred while storing the new site"
             }
         }
     },

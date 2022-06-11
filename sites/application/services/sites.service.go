@@ -28,3 +28,8 @@ func (s *SiteService) ValidateName(name string) bool {
 func (s *SiteService) GetByName(name string) (*model.Site, int64, error) {
 	return s.repository.GetByName(name)
 }
+
+// Persist site data into repository
+func (s *SiteService) Store(site *model.Site) (int64, error) {
+	return s.repository.Store(site)
+}

@@ -2,6 +2,7 @@ package application
 
 import (
 	"github.com/r0x16/PowerstoreOVMRestore/sites/application/services"
+	"github.com/r0x16/PowerstoreOVMRestore/sites/domain/model"
 	"github.com/r0x16/PowerstoreOVMRestore/sites/domain/repository"
 )
 
@@ -44,4 +45,17 @@ func (d *SiteCreationData) ValidateName(name string) int {
 	}
 
 	return 0
+}
+
+// Stores a site based on site creation data
+func (d *SiteCreationData) StoreSite() (*model.Site, error) {
+	site := &model.Site{
+		Name:        d.Name,
+		Description: d.Description,
+	}
+	_, err := d.siteService.Store(site)
+	if err != nil {
+		return nil, err
+	}
+	return site, nil
 }

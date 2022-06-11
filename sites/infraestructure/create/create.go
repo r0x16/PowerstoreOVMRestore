@@ -2,8 +2,6 @@ package create
 
 import (
 	"fyne.io/fyne/v2"
-	"fyne.io/fyne/v2/container"
-	"fyne.io/fyne/v2/widget"
 	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/config"
 	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/gui"
 	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/gui/wizard"
@@ -66,7 +64,11 @@ func (c *wizardConfig) OnClose() {
 
 // Stores new sites created and returns finish view
 func (c *wizardConfig) OnFinish() *fyne.Container {
-	return container.NewVBox(widget.NewLabel("Finished"))
+	_, err := createInstance.site.StoreSite()
+	if err != nil {
+		return view.NewErrorSiteCreationLayout(err)
+	}
+	return view.NewSuccessSiteCreationLayout()
 }
 
 // -- END of Wizard configuration struct

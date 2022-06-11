@@ -11,7 +11,7 @@ type SiteRepositoryGorm struct {
 	db *gorm.DB
 }
 
-var _ i.SiteRepository = SiteRepositoryGorm{}
+var _ i.SiteRepository = &SiteRepositoryGorm{}
 
 func NewSiteRepository() *SiteRepositoryGorm {
 	repo := &SiteRepositoryGorm{
@@ -22,8 +22,14 @@ func NewSiteRepository() *SiteRepositoryGorm {
 }
 
 // getByName implements repository.SiteRepository
-func (s SiteRepositoryGorm) GetByName(name string) (*model.Site, int64, error) {
+func (s *SiteRepositoryGorm) GetByName(name string) (*model.Site, int64, error) {
 	site := model.Site{}
 	result := s.db.Where("name = ?", name).Limit(1).Find(&site)
 	return &site, result.RowsAffected, result.Error
+}
+
+// Store implements repository.SiteRepository
+func (s *SiteRepositoryGorm) Store(site *model.Site) (int64, error) {
+	result := s.db.Create(site)
+	return result.RowsAffected, result.Error
 }
