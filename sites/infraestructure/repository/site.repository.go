@@ -22,9 +22,9 @@ func NewSiteRepository() *SiteRepositoryGorm {
 }
 
 // GetAll implements repository.SiteRepository
-func (s *SiteRepositoryGorm) GetAll() (*[]model.Site, int64, error) {
-	var sites *[]model.Site
-	result := s.db.Find(sites)
+func (s *SiteRepositoryGorm) GetAll() ([]model.Site, int64, error) {
+	var sites []model.Site
+	result := s.db.Find(&sites)
 	return sites, result.RowsAffected, result.Error
 }
 

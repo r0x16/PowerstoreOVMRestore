@@ -19,7 +19,7 @@ func NewListSite(siteRepository repository.SiteRepository) *SiteListProvider {
 }
 
 // Returns all the sites stored on the repository
-func (p *SiteListProvider) GetAllSites() (*[]model.Site, int64, error) {
+func (p *SiteListProvider) GetAllSites() ([]model.Site, int64, error) {
 	sites, length, err := p.siteService.GetAll()
 	if err != nil {
 		return nil, 0, err

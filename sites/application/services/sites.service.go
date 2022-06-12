@@ -25,7 +25,7 @@ func (s *SiteService) ValidateName(name string) bool {
 }
 
 // Get all sites from repository
-func (s *SiteService) GetAll() (*[]model.Site, int64, error) {
+func (s *SiteService) GetAll() ([]model.Site, int64, error) {
 	return s.repository.GetAll()
 }
 
