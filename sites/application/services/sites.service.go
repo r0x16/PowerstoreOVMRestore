@@ -24,6 +24,11 @@ func (s *SiteService) ValidateName(name string) bool {
 	return validName.MatchString(name)
 }
 
+// Get all sites from repository
+func (s *SiteService) GetAll() (*[]model.Site, int64, error) {
+	return s.repository.GetAll()
+}
+
 // Get a site from the repository with the given name
 func (s *SiteService) GetByName(name string) (*model.Site, int64, error) {
 	return s.repository.GetByName(name)
