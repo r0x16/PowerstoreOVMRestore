@@ -43,8 +43,6 @@ github.com/pkg/errors v0.8.0/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINE
 github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
-github.com/r0x16/go-ovm-client v0.1.0 h1:/Relwf1Jr72PUmmwGvT5VBYhj1yL7CKDaAbQDs8NS4g=
-github.com/r0x16/go-ovm-client v0.1.0/go.mod h1:3ILisnQa+AMhM75pTHlW82G+Bavq/0Vl0uVlrZhksHQ=
 github.com/r0x16/go-ovm-client v0.1.2 h1:KEYLlrYdgiIhWOuwWFmiUsAARZ5NH33bEmPgtE8k+EM=
 github.com/r0x16/go-ovm-client v0.1.2/go.mod h1:3ILisnQa+AMhM75pTHlW82G+Bavq/0Vl0uVlrZhksHQ=
 github.com/russross/blackfriday/v2 v2.0.1/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
