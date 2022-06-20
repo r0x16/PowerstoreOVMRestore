@@ -2,25 +2,24 @@ package view
 
 import (
 	"fyne.io/fyne/v2"
-	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
-	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
 	"github.com/r0x16/PowerstoreOVMRestore/sites/domain/model"
 	"github.com/r0x16/PowerstoreOVMRestore/sites/infraestructure/view"
 )
 
 type ListSiteView struct {
-	container   *fyne.Container
+	container   *widget.Accordion
 	SitesLayout []*fyne.Container
 }
 
 // Initializes the container view for listing the sites
 func NewSiteListLayout() *ListSiteView {
+	accordeon := widget.NewAccordion()
 	listView := &ListSiteView{
-		container: container.NewVBox(),
+		container: accordeon,
 	}
-	view.SitesContainer.RefreshSiteListLayout(listView.container)
+	view.SitesContainer.RefreshSiteListLayout(container.NewVBox(listView.container))
 	return listView
 }
 
@@ -29,14 +28,13 @@ func (v *ListSiteView) SetSites(sites []model.Site) {
 	v.SitesLayout = make([]*fyne.Container, len(sites))
 	for i, site := range sites {
 		layout := v.siteLayout(&site)
-		v.SitesLayout[i] = layout
-		v.container.Add(layout)
-		v.container.Add(widget.NewSeparator())
+		v.SitesLayout[i] = layout.Detail.(*fyne.Container)
+		v.container.Append(layout)
+		v.SitesLayout[i].Add(widget.NewLabel(site.Name))
 	}
 }
 
 // Create a single site layout item
-func (v *ListSiteView) siteLayout(site *model.Site) *fyne.Container {
-	name := canvas.NewText(site.Name, theme.ForegroundColor())
-	return container.NewVBox(name)
+func (v *ListSiteView) siteLayout(site *model.Site) *widget.AccordionItem {
+	return widget.NewAccordionItem(site.Name, container.NewVBox())
 }
