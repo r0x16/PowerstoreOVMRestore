@@ -3,10 +3,12 @@ package list
 import (
 	"time"
 
+	"github.com/r0x16/PowerstoreOVMRestore/ovm"
 	"github.com/r0x16/PowerstoreOVMRestore/sites/application"
 	"github.com/r0x16/PowerstoreOVMRestore/sites/domain/model"
 	"github.com/r0x16/PowerstoreOVMRestore/sites/infraestructure/list/view"
 	"github.com/r0x16/PowerstoreOVMRestore/sites/infraestructure/repository"
+	"github.com/r0x16/PowerstoreOVMRestore/sites/infraestructure/sites"
 )
 
 type ListSitesInstance struct {
@@ -57,4 +59,24 @@ func (l *ListSitesInstance) refreshSites() {
 		panic(err)
 	}
 
+}
+
+func (l *ListSitesInstance) AddWidgets() {
+	drawer := view.NewWidgetDrawer(l.view)
+	for i, site := range l.Sites {
+		widgets := []sites.SiteWidget{
+			&ovm.OvmWidget{},
+		}
+		drawer.SetIndex(i)
+		l.runWidgets(widgets, &site, drawer)
+
+	}
+}
+
+func (l *ListSitesInstance) runWidgets(widgets []sites.SiteWidget, site *model.Site, drawer *view.WidgetDrawer) {
+	for _, widget := range widgets {
+		widget.SetSite(site)
+		widget.SetDrawer(drawer)
+		widget.Draw()
+	}
 }
