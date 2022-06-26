@@ -1,22 +1,29 @@
 package sites
 
-import "github.com/r0x16/PowerstoreOVMRestore/sites/domain/model"
+import (
+	"github.com/r0x16/PowerstoreOVMRestore/sites/domain/model"
+	"github.com/r0x16/PowerstoreOVMRestore/sites/infraestructure/list/view"
+)
 
+// A widget represent a submodule in the site list view.
 type SiteWidget interface {
-	SetSite(site model.Site)
-	SetIndex(i int8)
+	SetSite(site *model.Site)
+	SetDrawer(*view.WidgetDrawer)
 	Draw()
 }
 
+// A base implementation of the interface to general purpose widgets.
 type BaseSiteWidget struct {
-	Site  model.Site
-	Index int8
+	Site   *model.Site
+	Drawer *view.WidgetDrawer
 }
 
-func (w *BaseSiteWidget) SetSite(site model.Site) {
+// SetSite sets the site to be used by the widget.
+func (w *BaseSiteWidget) SetSite(site *model.Site) {
 	w.Site = site
 }
 
-func (w *BaseSiteWidget) SetIndex(i int8) {
-	w.Index = i
+// SetDrawer sets the drawer to be used by the widget.
+func (w *BaseSiteWidget) SetDrawer(drawer *view.WidgetDrawer) {
+	w.Drawer = drawer
 }

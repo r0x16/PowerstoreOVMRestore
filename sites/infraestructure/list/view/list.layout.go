@@ -38,3 +38,8 @@ func (v *ListSiteView) SetSites(sites []model.Site) {
 func (v *ListSiteView) siteLayout(site *model.Site) *widget.AccordionItem {
 	return widget.NewAccordionItem(site.Name, container.NewVBox())
 }
+
+// Add a new widget to the site
+func (v *ListSiteView) AddWidget(item fyne.CanvasObject, index int8) {
+	v.SitesLayout[index].Add(item)
+}
