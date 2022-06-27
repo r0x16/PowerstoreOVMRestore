@@ -9,6 +9,7 @@ import (
 type SiteWidget interface {
 	SetSite(site *model.Site)
 	SetDrawer(*view.WidgetDrawer)
+	Run()
 	Draw()
 }
 

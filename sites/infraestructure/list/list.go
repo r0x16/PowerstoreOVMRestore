@@ -62,21 +62,28 @@ func (l *ListSitesInstance) refreshSites() {
 }
 
 func (l *ListSitesInstance) AddWidgets() {
-	drawer := view.NewWidgetDrawer(l.view)
+
 	for i, site := range l.Sites {
 		widgets := []sites.SiteWidget{
 			&ovm.OvmWidget{},
 		}
-		drawer.SetIndex(i)
-		l.runWidgets(widgets, &site, drawer)
+
+		l.runWidgets(widgets, &site, i)
 
 	}
 }
 
-func (l *ListSitesInstance) runWidgets(widgets []sites.SiteWidget, site *model.Site, drawer *view.WidgetDrawer) {
+func (l *ListSitesInstance) runWidgets(widgets []sites.SiteWidget, site *model.Site, index int) {
+	drawer := view.NewWidgetDrawer(l.view)
+	drawer.SetIndex(index)
 	for _, widget := range widgets {
 		widget.SetSite(site)
 		widget.SetDrawer(drawer)
-		widget.Draw()
+		go l.runAndRenderWidget(widget)
 	}
+}
+
+func (l *ListSitesInstance) runAndRenderWidget(widget sites.SiteWidget) {
+	widget.Run()
+	widget.Draw()
 }
