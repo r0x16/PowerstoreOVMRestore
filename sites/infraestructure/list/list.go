@@ -3,7 +3,7 @@ package list
 import (
 	"time"
 
-	"github.com/r0x16/PowerstoreOVMRestore/ovm"
+	"github.com/r0x16/PowerstoreOVMRestore/ovm/infraestructure/ovm"
 	"github.com/r0x16/PowerstoreOVMRestore/sites/application"
 	"github.com/r0x16/PowerstoreOVMRestore/sites/domain/model"
 	"github.com/r0x16/PowerstoreOVMRestore/sites/infraestructure/list/view"
