@@ -6,6 +6,6 @@ import (
 )
 
 type OvmRepository interface {
-	GetBySite(msite.Site) (model.Ovm, int64, error)
-	Store(model.Ovm) (int64, error)
+	GetBySite(*msite.Site) (*model.Ovm, int64, error)
+	Store(*model.Ovm) (int64, error)
 }

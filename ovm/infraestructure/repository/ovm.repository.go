@@ -26,14 +26,14 @@ func NewOvmRepository() *OvmRepositoryGorm {
 }
 
 // Get Ovm from database based on site
-func (o *OvmRepositoryGorm) GetBySite(site ms.Site) (model.Ovm, int64, error) {
-	ovm := model.Ovm{}
-	result := o.db.Where("site_id = ?", site.ID).Limit(1).Find(&ovm)
+func (o *OvmRepositoryGorm) GetBySite(site *ms.Site) (*model.Ovm, int64, error) {
+	ovm := &model.Ovm{}
+	result := o.db.Where("site_id = ?", site.ID).Limit(1).Find(ovm)
 	return ovm, result.RowsAffected, result.Error
 }
 
 // Store a new ovm in database
-func (o *OvmRepositoryGorm) Store(ovm model.Ovm) (int64, error) {
+func (o *OvmRepositoryGorm) Store(ovm *model.Ovm) (int64, error) {
 	result := o.db.Create(&ovm)
 	return result.RowsAffected, result.Error
 }
