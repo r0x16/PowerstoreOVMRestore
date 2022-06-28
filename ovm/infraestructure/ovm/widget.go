@@ -16,7 +16,7 @@ func (w *OvmWidget) Run() {
 
 }
 
-// called by site module when widget drawing is required (called as goroutine after Run)
+// called by site module when widget drawing is required (called as goroutine after Run())
 func (w *OvmWidget) Draw() {
 
 }
