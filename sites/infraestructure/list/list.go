@@ -36,6 +36,8 @@ func ListSitesAction() {
 	listInstance.view = view.NewSiteListLayout()
 	listInstance.view.SetSites(listInstance.Sites)
 
+	go listInstance.AddWidgets()
+
 }
 
 func ready() bool {
@@ -79,7 +81,7 @@ func (l *ListSitesInstance) runWidgets(widgets []sites.SiteWidget, site *model.S
 	for _, widget := range widgets {
 		widget.SetSite(site)
 		widget.SetDrawer(drawer)
-		go l.runAndRenderWidget(widget)
+		l.runAndRenderWidget(widget)
 	}
 }
 
