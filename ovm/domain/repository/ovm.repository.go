@@ -5,7 +5,7 @@ import (
 	msite "github.com/r0x16/PowerstoreOVMRestore/sites/domain/model"
 )
 
-type SiteRepository interface {
+type OvmRepository interface {
 	GetBySite(msite.Site) (model.Ovm, int64, error)
 	Store(model.Ovm) (int64, error)
 }
