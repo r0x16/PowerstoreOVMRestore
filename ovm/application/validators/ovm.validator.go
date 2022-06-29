@@ -16,8 +16,9 @@ func (v *OvmValidator) ValidateHostname(hostname string) bool {
 
 // Checks if a string represents a valid port number
 func (v *OvmValidator) ValidatePort(port string) bool {
-	if _, err := strconv.Atoi(port); err != nil {
+	portNumber, err := strconv.Atoi(port)
+	if err != nil {
 		return false
 	}
-	return true
+	return portNumber >= 0 && portNumber <= 65535
 }
