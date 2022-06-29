@@ -7,9 +7,10 @@ import (
 
 type Ovm struct {
 	domain.Model
-	Hostname string
-	Username string
-	Password string
-	SiteID   int
-	Site     *msite.Site
+	Hostname   string
+	PortNumber int
+	Username   string
+	Password   string
+	SiteID     int
+	Site       *msite.Site
 }
