@@ -18,8 +18,3 @@ func (w *OvmWidget) Run() {
 	w.Module = infraestructure.NewOvmManagerModule(w.Site)
 	w.Module.RunWidget()
 }
-
-// called by site module when widget drawing is required (called as goroutine after Run())
-func (w *OvmWidget) Draw() {
-	w.Module.DrawWidget(*w.Drawer)
-}

@@ -10,7 +10,6 @@ type SiteWidget interface {
 	SetSite(site *model.Site)
 	SetDrawer(*view.WidgetDrawer)
 	Run()
-	Draw()
 }
 
 // A base implementation of the interface to general purpose widgets.

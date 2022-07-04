@@ -87,5 +87,4 @@ func (l *ListSitesInstance) runWidgets(widgets []sites.SiteWidget, site *model.S
 
 func (l *ListSitesInstance) runAndRenderWidget(widget sites.SiteWidget) {
 	widget.Run()
-	widget.Draw()
 }
