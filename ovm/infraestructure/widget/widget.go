@@ -4,6 +4,7 @@ import (
 	"github.com/r0x16/PowerstoreOVMRestore/ovm/application"
 	"github.com/r0x16/PowerstoreOVMRestore/ovm/domain/model"
 	"github.com/r0x16/PowerstoreOVMRestore/ovm/infraestructure/repository"
+	"github.com/r0x16/PowerstoreOVMRestore/ovm/infraestructure/view"
 
 	ms "github.com/r0x16/PowerstoreOVMRestore/sites/domain/model"
 	vs "github.com/r0x16/PowerstoreOVMRestore/sites/infraestructure/list/view" // vs is for View Site
@@ -41,9 +42,10 @@ func (w *WidgetInstance) initOvm() {
 
 // Draws the widget in the site list based on Ovm value
 func (w *WidgetInstance) DrawWidget(drawer *vs.WidgetDrawer) {
+	layout := view.NewOvmLayout(drawer)
 	if w.Ovm != nil {
 		// Draws current Ovm
 	} else {
-		// Draws Empty
+		layout.DrawEmpty()
 	}
 }

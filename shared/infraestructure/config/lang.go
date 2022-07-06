@@ -34,8 +34,15 @@ type CreateSitesWizardLang struct {
 		NameStoreError string `json:"NameStoreError"`
 	} `json:"Errors"`
 }
+
+type OvmWidgetLang struct {
+	OvmManager  string `json:"OvmManager,omitempty"`
+	OvmNotFound string `json:"OvmNotFound,omitempty"`
+}
+
 type ModuleLang struct {
 	CreateSitesWizard CreateSitesWizardLang `json:"CreateSitesWizard"`
+	OvmWidget         OvmWidgetLang         `json:"OvmWidget"`
 }
 
 type WizardLang struct {

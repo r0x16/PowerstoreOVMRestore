@@ -30,7 +30,6 @@ func (v *ListSiteView) SetSites(sites []model.Site) {
 		layout := v.siteLayout(&site)
 		v.SitesLayout[i] = layout.Detail.(*fyne.Container)
 		v.container.Append(layout)
-		v.SitesLayout[i].Add(widget.NewLabel(site.Name))
 	}
 }
 

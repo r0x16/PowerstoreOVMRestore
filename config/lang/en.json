@@ -18,6 +18,10 @@
                 "NameExists": "Site {name} already exists",
                 "NameStoreError": "An error ocurred while storing the new site"
             }
+        },
+        "OvmWidget" : {
+            "OvmManager": "OVM Manager",
+            "OvmNotFound": "OVM Manager for this site is not set"
         }
     },
     "Wizard": {
