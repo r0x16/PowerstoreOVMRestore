@@ -40,9 +40,37 @@ type OvmWidgetLang struct {
 	OvmNotFound string `json:"OvmNotFound,omitempty"`
 }
 
+type CreateOvmWizardLang struct {
+	WizardTitle              string `json:"WizardTitle"`
+	IntroductionSectionTitle string `json:"IntroductionSectionTitle"`
+	IntroductionTitle        string `json:"IntroductionTitle"`
+	IntroductionContent      string `json:"IntroductionContent"`
+	AccessDataSectionTitle   string `json:"AccessDataSectionTitle"`
+	AccessDataCaption        string `json:"AccessDataCaption"`
+	HostnameInput            string `json:"HostnameInput"`
+	UsernameInput            string `json:"UsernameInput"`
+	PasswordInput            string `json:"PasswordInput"`
+	PortInput                string `json:"PortInput"`
+	SummarySectionTitle      string `json:"SummarySectionTitle"`
+	SummaryCaption           string `json:"SummaryCaption"`
+	OnFinishSuccess          string `json:"OnFinishSuccess"`
+	Errors                   struct {
+		HostnameEmpty  string `json:"HostnameEmpty"`
+		HostnameFormat string `json:"HostnameFormat"`
+		HostnameExists string `json:"HostnameExists"`
+		UsernameEmpty  string `json:"UsernameEmpty"`
+		UsernameFormat string `json:"UsernameFormat"`
+		PasswordEmpty  string `json:"PasswordEmpty"`
+		PortEmpty      string `json:"PortEmpty"`
+		PortFormat     string `json:"PortFormat"`
+		OvmStoreError  string `json:"OvmStoreError"`
+	} `json:"Errors"`
+}
+
 type ModuleLang struct {
 	CreateSitesWizard CreateSitesWizardLang `json:"CreateSitesWizard"`
 	OvmWidget         OvmWidgetLang         `json:"OvmWidget"`
+	CreateOvmWizard   CreateOvmWizardLang   `json:"CreateOvmWizard"`
 }
 
 type WizardLang struct {

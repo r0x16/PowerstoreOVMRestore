@@ -22,6 +22,32 @@
         "OvmWidget" : {
             "OvmManager": "OVM Manager",
             "OvmNotFound": "OVM Manager for this site is not set"
+        },
+        "CreateOvmWizard": {
+            "WizardTitle": "OVM Manager creation wizard",
+            "IntroductionSectionTitle": "Introduction",
+            "IntroductionTitle": "Welcome to the OVM Manager creation wizard",
+            "IntroductionContent": "This Wizard will guide you through the connection to OVM Manager in site {siteName}\nClick next button to continue",
+            "AccessDataSectionTitle": "Access Data",
+            "AccessDataCaption": "Set the connection data for the OVM Manager in site {siteName}",
+            "HostnameInput": "Hostname (FQDN or IP)",
+            "UsernameInput": "Username",
+            "PasswordInput": "Password",
+            "PortInput": "Port",
+            "SummarySectionTitle": "Summary",
+            "SummaryCaption": "Check the new OVM Manager information before creation",
+            "OnFinishSuccess": "{siteName}'s OVM Manager was linked successfully",
+            "Errors": {
+                "HostnameEmpty": "Hostname field cannot be empty",
+                "HostnameFormat": "Hostname field must contain only letters, numbers, dots and hyphens",
+                "HostnameExists": "OVM Manager {hostname} linked to another site ({other.SiteName})",
+                "UsernameEmpty": "Username field cannot be empty",
+                "UsernameFormat": "Username field must contain only letters, numbers, dots and hyphens",
+                "PasswordEmpty": "Password field cannot be empty",
+                "PortEmpty": "Port field cannot be empty",
+                "PortFormat": "Port field must contain only numbers (1 - 65535)",
+                "OvmStoreError": "An error ocurred while storing the new OVM Manager"
+            }
         }
     },
     "Wizard": {
