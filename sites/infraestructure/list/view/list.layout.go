@@ -2,6 +2,7 @@ package view
 
 import (
 	"fyne.io/fyne/v2"
+	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/widget"
 	"github.com/r0x16/PowerstoreOVMRestore/sites/domain/model"
@@ -35,10 +36,29 @@ func (v *ListSiteView) SetSites(sites []model.Site) {
 
 // Create a single site layout item
 func (v *ListSiteView) siteLayout(site *model.Site) *fyne.Container {
-	layout := container.NewVBox(
+	ly := v.titleDecoration(container.NewVBox(
 		widget.NewLabel(site.Name),
+	))
+	return container.NewVBox(
+		widget.NewSeparator(),
+		ly,
 	)
-	return layout
+}
+
+// Create title site decorations
+func (v *ListSiteView) titleDecoration(title *fyne.Container) *fyne.Container {
+	ly := container.NewHBox(
+		title,
+		//v.getBuilderImage(),
+	)
+	return ly
+}
+
+func (v *ListSiteView) getBuilderImage() *canvas.Image {
+	image := canvas.NewImageFromFile("assets/office_small.png")
+	image.FillMode = canvas.ImageFillOriginal
+	image.SetMinSize(fyne.NewSize(40, 40))
+	return image
 }
 
 // Add a new widget to the site

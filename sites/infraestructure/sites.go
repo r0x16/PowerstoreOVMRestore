@@ -15,5 +15,6 @@ func NewSitesModule() {
 		create.CreateSiteAction,
 		view.SitesContainer.GetAddIcon(),
 	)
+	view.SitesContainer.CreateTitle()
 	go list.ListSitesAction()
 }

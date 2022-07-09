@@ -25,7 +25,7 @@ func NewMainLayout() {
 	ly.boxLayout = ly.createBoxLayout()
 	ly.Header = ly.createHeader()
 	ly.Body = ly.createBody()
-	ly.Body.SetOffset(0.7)
+	ly.Body.SetOffset(0.3)
 	ly.Footer = ly.createFooter()
 
 	ly.boxLayout.Add(ly.Header)
