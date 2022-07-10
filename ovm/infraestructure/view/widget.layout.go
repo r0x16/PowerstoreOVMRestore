@@ -7,6 +7,7 @@ import (
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
 	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/config"
+
 	vs "github.com/r0x16/PowerstoreOVMRestore/sites/infraestructure/list/view"
 )
 
@@ -22,11 +23,11 @@ func NewOvmLayout(drawer *vs.WidgetDrawer) *OvmLayout {
 }
 
 // Draw the empty widget, with a message and a button to setup the OVM
-func (ol *OvmLayout) DrawEmpty() {
+func (ol *OvmLayout) DrawEmpty(linkOvm func()) {
 	ol.drawer.Draw(
 		container.NewVBox(
 			getTitle(),
-			GetEmptyWidgetContainer(),
+			GetEmptyWidgetContainer(linkOvm),
 			widget.NewSeparator(),
 		))
 }

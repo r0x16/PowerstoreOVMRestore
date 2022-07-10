@@ -3,6 +3,7 @@ package widget
 import (
 	"github.com/r0x16/PowerstoreOVMRestore/ovm/application"
 	"github.com/r0x16/PowerstoreOVMRestore/ovm/domain/model"
+	"github.com/r0x16/PowerstoreOVMRestore/ovm/infraestructure/create"
 	"github.com/r0x16/PowerstoreOVMRestore/ovm/infraestructure/repository"
 	"github.com/r0x16/PowerstoreOVMRestore/ovm/infraestructure/view"
 
@@ -16,7 +17,7 @@ type WidgetInstance struct {
 	widgetProvider *application.OvmWidgetProvider
 }
 
-// Process the widget
+// Process the widget and returns an instance associated to the site and ovm manager if any
 func OvmWidgetAction(site *ms.Site) *WidgetInstance {
 	widgetInstance := &WidgetInstance{
 		widgetProvider: application.NewWidgetOvm(repository.NewOvmRepository()),
@@ -46,6 +47,13 @@ func (w *WidgetInstance) DrawWidget(drawer *vs.WidgetDrawer) {
 	if w.Ovm != nil {
 		// Draws current Ovm
 	} else {
-		layout.DrawEmpty()
+		layout.DrawEmpty(func() {
+			w.LinkOvmManager()
+		})
 	}
+}
+
+// Links OVM Manager to the site
+func (w *WidgetInstance) LinkOvmManager() {
+	create.CreateOvmAction(w.site)
 }

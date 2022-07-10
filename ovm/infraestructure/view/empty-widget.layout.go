@@ -11,11 +11,11 @@ import (
 )
 
 // Get the button to setup the OVM
-func GetEmptyWidgetContainer() *fyne.Container {
+func GetEmptyWidgetContainer(linkOvm func()) *fyne.Container {
 	return container.NewHBox(
 		getEmptyMessage(),
 		layout.NewSpacer(),
-		widget.NewButtonWithIcon("", theme.SettingsIcon(), nil),
+		widget.NewButtonWithIcon("", theme.SettingsIcon(), linkOvm),
 	)
 }
 
