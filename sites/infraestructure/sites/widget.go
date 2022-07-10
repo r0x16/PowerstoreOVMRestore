@@ -14,13 +14,13 @@ type SiteWidget interface {
 
 // A base implementation of the interface to general purpose widgets.
 type BaseSiteWidget struct {
-	Site   *model.Site
+	Site   model.Site
 	Drawer *view.WidgetDrawer
 }
 
 // SetSite sets the site to be used by the widget.
 func (w *BaseSiteWidget) SetSite(site *model.Site) {
-	w.Site = site
+	w.Site = *site
 }
 
 // SetDrawer sets the drawer to be used by the widget.

@@ -15,6 +15,6 @@ var _ sites.SiteWidget = &OvmWidget{}
 
 // called by site module when widget is started (called as goroutine)
 func (w *OvmWidget) Run() {
-	w.Module = infraestructure.NewOvmManagerModule(w.Site)
+	w.Module = infraestructure.NewOvmManagerModule(&w.Site)
 	w.Module.RunWidget(w.Drawer)
 }
