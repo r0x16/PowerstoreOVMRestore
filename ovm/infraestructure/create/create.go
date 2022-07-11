@@ -2,6 +2,7 @@ package create
 
 import (
 	"fyne.io/fyne/v2"
+	"github.com/r0x16/PowerstoreOVMRestore/ovm/infraestructure/create/view"
 	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/config"
 	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/gui"
 	"github.com/r0x16/PowerstoreOVMRestore/shared/infraestructure/gui/wizard"
@@ -16,6 +17,7 @@ type createOvmInstance struct {
 
 var createInstance *createOvmInstance
 
+// This action creates a new wizard window for link a new ovm manager with a site
 func CreateOvmAction(site *ms.Site) {
 	if isOpened() {
 		return
@@ -27,10 +29,11 @@ func CreateOvmAction(site *ms.Site) {
 	wc := &createOvmWizardConfig{}
 	wc.Title = config.Lang.Module.CreateOvmWizard.WizardTitle
 
-	// Need almost 1 Step to run the wizard -- TODO: improve this
-	//createInstance.wizard = view.NewCreateSiteWizard(wc, []wizard.WizardStep{})
-	//createInstance.wizard.SetOnClose(wc.OnClose)
-	//createInstance.wizard.Show()
+	createInstance.wizard = view.NewCreateOvmWizard(wc, []wizard.WizardStep{
+		NewIntroductionStep(view.NewIntroductionStepLayout(site.Name)),
+	})
+	createInstance.wizard.SetOnClose(wc.OnClose)
+	createInstance.wizard.Show()
 }
 
 func isOpened() bool {
