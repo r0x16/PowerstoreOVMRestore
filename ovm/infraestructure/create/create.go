@@ -10,6 +10,9 @@ import (
 	ms "github.com/r0x16/PowerstoreOVMRestore/sites/domain/model"
 )
 
+/*
+	Stores the data for the wizard steps
+*/
 type createOvmInstance struct {
 	wizard *gui.Window
 	Site   *ms.Site
@@ -17,7 +20,9 @@ type createOvmInstance struct {
 
 var createInstance *createOvmInstance
 
-// This action creates a new wizard window for link a new ovm manager with a site
+/*
+	This action creates a new wizard window for link a new ovm manager with a site
+*/
 func CreateOvmAction(site *ms.Site) {
 	if isOpened() {
 		return
@@ -31,11 +36,15 @@ func CreateOvmAction(site *ms.Site) {
 
 	createInstance.wizard = view.NewCreateOvmWizard(wc, []wizard.WizardStep{
 		NewIntroductionStep(view.NewIntroductionStepLayout(site.Name)),
+		NewAccessDataStep(view.NewAccessDataStepLayout()),
 	})
 	createInstance.wizard.SetOnClose(wc.OnClose)
 	createInstance.wizard.Show()
 }
 
+/*
+	Check if wizard window is opened
+*/
 func isOpened() bool {
 	return createInstance != nil
 }
