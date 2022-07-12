@@ -49,20 +49,27 @@ func isOpened() bool {
 	return createInstance != nil
 }
 
+/*
+	Holds all features needed for wizard to work
+*/
 type createOvmWizardConfig struct {
 	wizard.BaseWizardConfig
 }
 
-// Callback called on 3 cases:
-// 1. Cancel Button clicked
-// 2. Close button clicked after Finished
-// 3. Window instance closed
+/*
+	Callback called on 3 cases:
+		1. Cancel Button clicked
+		2. Close button clicked after Finished
+		3. Window instance closed
+*/
 func (c *createOvmWizardConfig) OnClose() {
 	createInstance.wizard.Close()
 	createInstance = nil
 }
 
-// Stores new sites created and returns finish view
+/*
+	Stores new Ovm manager configured and returns finish view
+*/
 func (c *createOvmWizardConfig) OnFinish() *fyne.Container {
 	return nil
 }
